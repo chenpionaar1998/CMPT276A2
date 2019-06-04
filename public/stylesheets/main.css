@@ -25,3 +25,101 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+input {
+  text-align: right;
+  height: 30px;
+  border:1px solid gray;
+  outline:none;
+}
+
+#studentID::-webkit-inner-spin-button, 
+#studentID::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.text_input {
+  padding-right: 20px;
+}
+
+#wrapper {
+  -webkit-appearance:none!important;
+  border:1px solid gray;
+  outline:none;
+}
+
+label {
+  font-weight: normal;
+  vertical-align: text-bottom;
+}
+
+#height, #weight {
+  border: none;
+}
+
+.top_nav_bar {
+  height: 60px;
+}
+
+.top_nav_bar > td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.tabContent {
+  background-color: rgb(234, 241, 243);
+  width: 600px;
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form > table {
+  display: inline-block;
+}
+
+tr {
+  height: 45px;
+}
+
+#unit{
+  background: white;
+  float: right;
+  height: 30px;
+  width: 30px;
+  padding-top: 5px;
+}
+
+.top_nav_bar {
+  overflow: hidden;
+  background-color: rgb(177, 189, 231);
+  opacity: 0.8;
+  width: 600px;
+  height: 50px;
+}
+
+.hover_text {
+  width: 200px;
+}
+
+.top_nav_bar button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.top_nav_bar button:hover {
+  background-color: rgb(156, 169, 218);
+}
+
+.top_nav_bar button.active {
+  background-color: rgb(132, 148, 206);
+}

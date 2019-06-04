@@ -1,0 +1,118 @@
+<div id="UPDATE" class="tabContent">
+    <form action="" method="GET" class="form">
+        <table>
+            <col width="130px">
+            <col width="*">
+            <h3>Update a student from the database</h3>
+            <tr>
+                <td>Student ID:</td>
+                <td>
+                    <input style="width: 180px;" pattern="[0-9]{3}?" class="text_input" type="text"
+                        name="Student ID" placeholder="123" required title="Input shuld be a 3 digit number"><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="FIND">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <form action="" method="POST" class="form">
+        <table>
+            <col width="130px">
+            <col width="*">
+            <h3>Update a student from the database<br></h3>
+            <tr>
+                <td>First name:</td>
+                <td>
+                    <input style="width: 180px;" class="text_input" type="text" name="First Name"
+                        placeholder="Dean" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td>
+                    <input style="width: 180px;" class="text_input" type="text" name="Last Name" placeholder="Chiu" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Student ID:</td>
+                <td>
+                    <input style="width: 180px;" pattern="[0-9]{3}?" class="text_input"
+                        style="background-color: rgb(202, 199, 199)" type="text" name="Student ID" placeholder="123"
+                        disabled><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of birth:</td>
+                <td>
+                    <input style="width: 180px;" type="date" name="DOB" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <span>
+                        <input id="radio1" type="radio" name="gender" value="male" checked>
+                        <label for="radio1">Male</label>
+                    </span>
+                    <span>
+                        <input id="radio2" type="radio" name="gender" value="female">
+                        <label for="radio2">Female</label>
+                    </span>
+                    <span>
+                        <input claidss="radio3" type="radio" name="gender" value="other">
+                        <label for="radio3">Other</label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>Weight:</td>
+                <td>
+                    <div id="wrapper">
+                        <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
+                            id="weight" name="weight" placeholder="120" required>
+                        <div id=unit>lb</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Height:</td>
+                <td>
+                    <div id="wrapper">
+                        <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
+                            id="height" name="height" placeholder="165" required>
+                        <div id=unit>cm</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Shoe size:</td>
+                <td>
+                    <input style="width: 100px;" type="number" name="Show Size" min="3" max="15" step="0.5" value="8.0"
+                        pattern="[0-9]?[0-9].[0-9]" maxlength="3">
+                </td>
+            </tr>
+            <tr>
+                <td>Hair colour:</td>
+                <td>
+                    <input style="width: 100px;" type="color" name="Hair colour" value="#e66465"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>GPA:</td>
+                <td>
+                    <input style="width: 100px;" type="number" name="GPA" min="0.00" max="4.33" step="0.1" value="3.00"
+                        pattern="[0-9].[0-9][0-9]{3}" maxlength="3">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="UPDATE">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
