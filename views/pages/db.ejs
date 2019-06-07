@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <% include ../partials/header.ejs %>
 </head>
 
-<body>
-
-<% include ../partials/nav.ejs %>
-
-<div class="container">
-<h2>Database Results</h2>
-
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.studentid %> - <%= r.fname %> - 
-          <%= r.lname %> - <%= r.dob %> - <%= r.gender %> - 
-          <%= r.weight %> - <%= r.height %> - <%= r.shoe_size %> - 
-          <%= r.hair_color %> - <%= r.gpa %> </li>
-    <% }); %>
-</ul>
-
-</div>
-
+<body style="background-color: rgb(131, 127, 127)" onload="clickModify()">
+  <div id="db_main">
+    <div class="db_nav_bar" id="db_nav_bar_view">
+      <a href='/'><button id="modify" class="hover_text">Modify Database</button></a>
+      <a href='/db'><button id="view" class="hover_text">View Database</button></a>
+    </div>
+    <div class="db_div">
+      <table id="db_table">
+        <tr id="db_attributes">
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Student ID</td>
+          <td>Date of birth</td>
+          <td>Gender</td>
+          <td>Weight</td>
+          <td>Height</td>
+          <td>Shoe size</td>
+          <td>Hair color</td>
+          <td>GPA</td>
+        </tr>
+        <% results.forEach(function(r) { %>
+        <tr><td><%= r.fname %></td><td><%= r.lname %></td>
+          <td><%= r.studentid %></td><td><%= r.dob %></td><td><%= r.gender %></td><td>
+          <%= r.weight %></td><td><%= r.height %></td><td><%= r.shoe_size %></td><td>
+          <%= r.hair_color %></td><td><%= r.gpa %></td></tr>
+        <% }); %>
+      </table>
+    </div>
+    <div class="db_div" id="person_div" style="text-align: center">
+      <% results.forEach(function(r){ %>
+        <div width=" <%= 100 * (r.weight / avgWeight) %>" style="color: <%= r.hair_color%>; display: inline-block;">
+            <img src="/img/standing-up-man-.png" width=" <%= 100 * (r.weight / avgWeight) %>" height="<%= 100 * (r.height / avgHeight)%>" >
+            <div width=" <%= 100 * (r.weight / avgWeight) %>"><%= r.fname%> <%= r.lname%></div>
+        </div>
+      <%}); %>
+    </div>
+  </div>
 </body>
+
 </html>

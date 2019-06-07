@@ -12,8 +12,8 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" value="FIND">
+                <td colspan="2" class="submit_td">
+                    <input type="submit" value="Find">
                 </td>
             </tr>
         </table>
@@ -27,15 +27,15 @@
             <tr>
                 <td>First name:</td>
                 <td>
-                    <input style="width: 180px;" id="fname_update" class="text_input" type="text" name="fname" placeholder="Dean"
-                        required><br>
+                    <input style="width: 180px;" id="fname_update" class="text_input" type="text" name="fname"
+                        placeholder="Dean" required><br>
                 </td>
             </tr>
             <tr>
                 <td>Last name:</td>
                 <td>
-                    <input style="width: 180px;" id="lname_update" class="text_input" type="text" name="lname" placeholder="Chiu"
-                        required><br>
+                    <input style="width: 180px;" id="lname_update" class="text_input" type="text" name="lname"
+                        placeholder="Chiu" required><br>
                 </td>
             </tr>
             <tr>
@@ -92,26 +92,28 @@
             <tr>
                 <td>Shoe size:</td>
                 <td>
-                    <input style="width: 100px;" type="number" id="shoe_size_update" name="shoe_size" min="3" max="15" step="0.5" value="8.0"
-                        pattern="[0-9]?[0-9].[0-9]" maxlength="3">
+                    <input style="width: 100px;" type="number" id="shoe_size_update" name="shoe_size" min="3" max="15"
+                        step="0.5" value="8.0" pattern="[0-9]?[0-9].[0-9]" maxlength="3">
                 </td>
             </tr>
             <tr>
                 <td>Hair colour:</td>
                 <td>
-                    <input style="width: 100px;" type="color" id="hair_color_update" name="hair_color" value="#e66465"><br>
+                    <input style="width: 100px;" type="color" id="hair_color_update" name="hair_color"
+                        value="#e66465"><br>
                 </td>
             </tr>
             <tr>
                 <td>GPA:</td>
                 <td>
-                    <input style="width: 100px;" type="number" id="gpa_update" name="GPA" min="0.00" max="4.33" step="0.1" value="3.00"
-                        pattern="[0-9].[0-9][0-9]{3}" maxlength="3">
+                    <input style="width: 100px;" type="number" id="gpa_update" name="GPA" min="0.00" max="4.33"
+                        step="0.1" value="3.00" pattern="[0-9].[0-9][0-9]{3}" maxlength="3">
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" value="UPDATE">
+                <td colspan="2" class="submit_td">
+                    <input type="submit" value="Update">
+                    <button id="cancel" onclick="Cancel_update()">Cancel</button>
                 </td>
             </tr>
         </table>

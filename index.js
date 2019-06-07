@@ -37,7 +37,6 @@ app.post('/add', async function (req, res) {
       async function (err, res) {
         if (err) {
           if (err.code == 23505) {
-            // TODO: UI INDICATION FOR DUP KEY
             io.emit("insert", "dup_key");
           }
           else {
@@ -45,7 +44,6 @@ app.post('/add', async function (req, res) {
           }
         }
         else {
-          // TODO: UI INDICATION FOR SUCCESS
           io.emit("insert", 'success');
         }
       });
@@ -61,19 +59,23 @@ app.post('/add', async function (req, res) {
 app.post('/delete', async (req, res) => {
   try {
     const client = await pool.connect();
-    await client.query('DELETE FROM students WHERE fname = $1 AND lname = $2 AND studentid = $3',
-      [req.body.fname, req.body.lname, req.body.studentID],
-      function (err, res) {
-        if (err) {
-          // TODO DELETION ERROR
-          console.log("deletion error \n");
-          console.log(err);
-        }
-        else {
-          // TODO UI indication for successful deletion
-          console.log("deletion success");
-        }
-      });
+    const result = await client.query('SELECT EXISTS(SELECT 1 FROM students WHERE studentid=$1)', [req.body.studentID]);
+    if (result.rows[0].exists) {
+      await client.query('DELETE FROM students WHERE fname = $1 AND lname = $2 AND studentid = $3',
+        [req.body.fname, req.body.lname, req.body.studentID],
+        function (err, res) {
+          if (err) {
+            io.emit('student_deletion', "fail");
+          }
+          else {
+            io.emit('student_deletion', 'success');
+          }
+        });
+    }
+    else {
+      io.emit('student_not_found', req.body.studentID);
+    }
+
 
     client.release();
   }
@@ -94,10 +96,10 @@ app.post('/update', async (req, res) => {
       [data.fname, data.lname, data.DOB, data.gender, data.weight, data.height, data.shoe_size, data.hair_color, data.GPA, data.studentID],
       function (err, res) {
         if (err) {
-          // TODO UI indication for unsuccessful update
+          io.emit('student_update', 'fail');
         }
         else {
-          // TODO UI indication for successful update
+          io.emit('student_update', 'success');
         }
       });
     client.release();
@@ -118,6 +120,9 @@ app.get('/find/:studentID', async (req, res) => {
       const student_data = await client.query('SELECT * FROM students WHERE studentid=$1', [id]);
       io.emit('student_found', student_data);
     }
+    else {
+      io.emit('student_not_found', id);
+    }
 
     client.release();
   }
@@ -131,7 +136,11 @@ app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM students');
-    const results = { 'results': (result) ? result.rows : null };
+    const avgWeight = await client.query('SELECT AVG(weight) FROM students');
+    const avgHeight = await client.query('SELECT AVG(height) FROM students');
+    const results = { 'results': (result) ? result.rows : null,
+                     'avgWeight': (avgWeight) ? avgWeight.rows[0].avg : null,
+                     'avgHeight': (avgHeight) ? avgHeight.rows[0].avg : null};
     res.render('pages/db', results);
     client.release();
   } catch (err) {
@@ -139,23 +148,3 @@ app.get('/db', async (req, res) => {
     res.send("Error " + err);
   }
 });
-
-async function ValidateAddForm() {
-  try {
-    const id = document.getElementById('studentID');
-    const client = await pool.connect();
-    const result = await client.query('SELECT EXISTS(SELECT 1 FROM students WHERE studentid={$1})', id);
-
-    console.log("RESSSSSS" + result);
-
-    if (result) {
-      return false;
-    }
-
-    return true;
-  }
-  catch (err) {
-    console.error(err);
-    return false;
-  }
-}

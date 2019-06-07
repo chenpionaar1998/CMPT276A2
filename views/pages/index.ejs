@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <% include ../partials/header.ejs %>
 </head>
 
-<body>
-  <div class="top_nav_bar">
-    <button class="hover_text" onclick="openTable(event, 'ADD')" id='default'>Add a student
-    <button class="hover_text" onclick="openTable(event, 'UPDATE')" id='update'>Update an attribute
-    <button class="hover_text" onclick="openTable(event, 'DELETE')" id='delete'>Delete a student
+<body style="background-color: rgb(131, 127, 127)">
+  <div id="main">
+    <div class="db_nav_bar" id="db_nav_bar_modify">
+      <a href='/'><button id="modify" class="hover_text">Modify Database</button></a>
+      <a href='/db'><button id="view" class="hover_text">View Database</button></a>
+    </div>
+    <div class="top_nav_bar">
+      <button class="hover_text" onclick="openTable(event, 'ADD')" id='default'>Add a student</button>
+      <button class="hover_text" onclick="openTable(event, 'UPDATE')" id='update'>Update an attribute</button>
+      <button class="hover_text" onclick="openTable(event, 'DELETE')" id='delete'>Delete a student</button>
+      <!-- <button class="hover_text" onclick="OpenPage('DB')">View Databse</button> -->
+    </div>
+    <% include ../partials/add_form.ejs %>
+    <% include ../partials/update_form.ejs %>
+    <% include ../partials/delete_form.ejs %>
   </div>
-  <% include ../partials/add_form.ejs %>
-  <% include ../partials/update_form.ejs %>
-  <% include ../partials/delete_form.ejs %>
 </body>
 
 <% if (tab === 'delete') {%>
-  <script> document.getElementById('delete').click();</script>
+<script> document.getElementById('delete').click();</script>
 <%} else if (tab === 'update') {%>
-  <script> document.getElementById('update').click();</script>
+<script> document.getElementById('update').click();</script>
 <%} else if (tab === 'default'){%>
-  <script> document.getElementById('default').click();</script>
+<script> document.getElementById('default').click();</script>
 <%}%>
 </html>

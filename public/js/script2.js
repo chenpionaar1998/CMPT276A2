@@ -18,4 +18,9 @@ function openTable(evt, table_name) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(table_name).style.display = "block";
     evt.currentTarget.className += " active";
+    document.getElementById("modify").className += " active";
+}
+
+function clickModify(){
+    document.getElementById("view").className += " active";
 }
