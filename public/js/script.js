@@ -1,4 +1,4 @@
-let socket = io.connect('http://localhost:5000');
+let socket = io.connect('https://young-bayou-35821.herokuapp.com/');
 
 function RefillForm(data) {
     document.getElementById('fname_update').value = data.fname;

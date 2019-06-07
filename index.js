@@ -10,7 +10,8 @@ io.on('connection', function (socket) { });
 
 const { Pool } = require('pg');
 var pool = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
