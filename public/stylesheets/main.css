@@ -32,6 +32,10 @@ input {
   outline:none;
 }
 
+input:focus {
+  border:3px solid rgb(65, 201, 149);
+}
+
 #studentID::-webkit-inner-spin-button, 
 #studentID::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -53,7 +57,7 @@ label {
   vertical-align: text-bottom;
 }
 
-#height, #weight {
+#height_add, #weight_add {
   border: none;
 }
 

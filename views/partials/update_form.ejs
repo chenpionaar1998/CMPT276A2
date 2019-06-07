@@ -1,5 +1,5 @@
 <div id="UPDATE" class="tabContent">
-    <form action="" method="GET" class="form">
+    <form id="find_form" action="/find/:studentID" method="GET" class="form">
         <table>
             <col width="130px">
             <col width="*">
@@ -7,8 +7,8 @@
             <tr>
                 <td>Student ID:</td>
                 <td>
-                    <input style="width: 180px;" pattern="[0-9]{3}?" class="text_input" type="text"
-                        name="Student ID" placeholder="123" required title="Input shuld be a 3 digit number"><br>
+                    <input style="width: 180px;" pattern="[0-9]{3}?" class="text_input" type="text" name="studentID"
+                        placeholder="123" required title="Input shuld be a 3 digit number"><br>
                 </td>
             </tr>
             <tr>
@@ -19,7 +19,7 @@
         </table>
     </form>
 
-    <form action="" method="POST" class="form">
+    <form id="update_form" action="/update" method="POST" class="form" style="display: none">
         <table>
             <col width="130px">
             <col width="*">
@@ -27,43 +27,44 @@
             <tr>
                 <td>First name:</td>
                 <td>
-                    <input style="width: 180px;" class="text_input" type="text" name="First Name"
-                        placeholder="Dean" required><br>
+                    <input style="width: 180px;" id="fname_update" class="text_input" type="text" name="fname" placeholder="Dean"
+                        required><br>
                 </td>
             </tr>
             <tr>
                 <td>Last name:</td>
                 <td>
-                    <input style="width: 180px;" class="text_input" type="text" name="Last Name" placeholder="Chiu" required><br>
+                    <input style="width: 180px;" id="lname_update" class="text_input" type="text" name="lname" placeholder="Chiu"
+                        required><br>
                 </td>
             </tr>
             <tr>
                 <td>Student ID:</td>
                 <td>
-                    <input style="width: 180px;" pattern="[0-9]{3}?" class="text_input"
-                        style="background-color: rgb(202, 199, 199)" type="text" name="Student ID" placeholder="123"
-                        disabled><br>
+                    <input style="width: 180px;" pattern="[0-9]{3}?" id="studentid_update" class="text_input"
+                        style="background-color: rgb(201, 194, 194)" type="text" name="studentID" placeholder="123"
+                        readonly="readonly"><br>
                 </td>
             </tr>
             <tr>
                 <td>Date of birth:</td>
                 <td>
-                    <input style="width: 180px;" type="date" name="DOB" required>
+                    <input style="width: 180px;" type="date" id="dob_update" name="DOB" required>
                 </td>
             </tr>
             <tr>
                 <td>Gender:</td>
                 <td>
                     <span>
-                        <input id="radio1" type="radio" name="gender" value="male" checked>
+                        <input id="radio1_update" type="radio" name="gender" value="M" checked>
                         <label for="radio1">Male</label>
                     </span>
                     <span>
-                        <input id="radio2" type="radio" name="gender" value="female">
+                        <input id="radio2_update" type="radio" name="gender" value="F">
                         <label for="radio2">Female</label>
                     </span>
                     <span>
-                        <input claidss="radio3" type="radio" name="gender" value="other">
+                        <input id="radio3_update" type="radio" name="gender" value="O">
                         <label for="radio3">Other</label>
                     </span>
                 </td>
@@ -73,7 +74,7 @@
                 <td>
                     <div id="wrapper">
                         <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
-                            id="weight" name="weight" placeholder="120" required>
+                            id="weight_update" name="weight" placeholder="120" required>
                         <div id=unit>lb</div>
                     </div>
                 </td>
@@ -83,7 +84,7 @@
                 <td>
                     <div id="wrapper">
                         <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
-                            id="height" name="height" placeholder="165" required>
+                            id="height_update" name="height" placeholder="165" required>
                         <div id=unit>cm</div>
                     </div>
                 </td>
@@ -91,20 +92,20 @@
             <tr>
                 <td>Shoe size:</td>
                 <td>
-                    <input style="width: 100px;" type="number" name="Show Size" min="3" max="15" step="0.5" value="8.0"
+                    <input style="width: 100px;" type="number" id="shoe_size_update" name="shoe_size" min="3" max="15" step="0.5" value="8.0"
                         pattern="[0-9]?[0-9].[0-9]" maxlength="3">
                 </td>
             </tr>
             <tr>
                 <td>Hair colour:</td>
                 <td>
-                    <input style="width: 100px;" type="color" name="Hair colour" value="#e66465"><br>
+                    <input style="width: 100px;" type="color" id="hair_color_update" name="hair_color" value="#e66465"><br>
                 </td>
             </tr>
             <tr>
                 <td>GPA:</td>
                 <td>
-                    <input style="width: 100px;" type="number" name="GPA" min="0.00" max="4.33" step="0.1" value="3.00"
+                    <input style="width: 100px;" type="number" id="gpa_update" name="GPA" min="0.00" max="4.33" step="0.1" value="3.00"
                         pattern="[0-9].[0-9][0-9]{3}" maxlength="3">
                 </td>
             </tr>

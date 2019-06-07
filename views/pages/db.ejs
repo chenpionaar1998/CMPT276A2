@@ -13,7 +13,10 @@
 
 <ul>
     <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
+        <li><%= r.studentid %> - <%= r.fname %> - 
+          <%= r.lname %> - <%= r.dob %> - <%= r.gender %> - 
+          <%= r.weight %> - <%= r.height %> - <%= r.shoe_size %> - 
+          <%= r.hair_color %> - <%= r.gpa %> </li>
     <% }); %>
 </ul>
 

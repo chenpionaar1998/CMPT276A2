@@ -1,20 +1,21 @@
 <div id="ADD" class="tabContent">
-    <form action="/add" method="POST" class="form">
-        <table>
+    <form action="/add" method="POST" class="form" onsubmit="return ValidateAddForm()">
+        <div id="insert_result"></div>
+        <h3>Add a student to the database<br></h3>
+        <table id="insert_table">
             <col width="130px">
             <col width="*">
-            <h3>Add a student to the database<br></h3>
             <tr>
                 <td>First name:</td>
                 <td>
-                    <input style="width: 180px;" class="text_input" type="text" name="First Name" placeholder="Dean"
+                    <input style="width: 180px;" class="text_input" type="text" name="fname" placeholder="Dean"
                         required><br>
                 </td>
             </tr>
             <tr>
                 <td>Last name:</td>
                 <td>
-                    <input style="width: 180px;" class="text_input" type="text" name="Last Name" placeholder="Chiu"
+                    <input style="width: 180px;" class="text_input" type="text" name="lname" placeholder="Chiu"
                         required><br>
                 </td>
             </tr>
@@ -22,7 +23,7 @@
                 <td>Student ID:</td>
                 <td>
                     <input id="studentID" style="width: 180px;" pattern="[0-9]{3}?" class="text_input"
-                        type="number" name="Student ID" placeholder="123" required title="Input shuld be a 3 digit number"><br>
+                        type="number" name="studentID" placeholder="123" required title="Input shuld be a 3 digit number"><br>
                 </td>
             </tr>
             <tr>
@@ -35,15 +36,15 @@
                 <td>Gender:</td>
                 <td>
                     <span>
-                        <input id="radio1" type="radio" name="gender" value="male" checked>
+                        <input id="radio1" type="radio" name="gender" value="M" checked>
                         <label for="radio1">Male</label>
                     </span>
                     <span>
-                        <input id="radio2" type="radio" name="gender" value="female">
+                        <input id="radio2" type="radio" name="gender" value="F">
                         <label for="radio2">Female</label>
                     </span>
                     <span>
-                        <input claidss="radio3" type="radio" name="gender" value="other">
+                        <input claidss="radio3" type="radio" name="gender" value="O">
                         <label for="radio3">Other</label>
                     </span>
                 </td>
@@ -53,7 +54,7 @@
                 <td>
                     <div id="wrapper">
                         <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
-                            id="weight" name="weight" placeholder="120" required>
+                            id="weight_add" name="weight" placeholder="120" required>
                         <div id=unit>lb &nbsp</div>
                     </div>
                 </td>
@@ -63,7 +64,7 @@
                 <td>
                     <div id="wrapper">
                         <input style="width: 150px;" patter="[0-9][0-9][0-9]" max="999" min="0" step="1" type="number"
-                            id="height" name="height" placeholder="165" required>
+                            id="height_add" name="height" placeholder="165" required>
                         <div id=unit>cm &nbsp &nbsp</div>
                     </div>
                 </td>
@@ -71,14 +72,14 @@
             <tr>
                 <td>Shoe size:</td>
                 <td>
-                    <input style="width: 100px;" type="number" name="Show Size" min="3" max="15" step="0.5" value="8.0"
+                    <input style="width: 100px;" type="number" name="shoe_size" min="3" max="15" step="0.5" value="8.0"
                         pattern="[0-9]?[0-9].[0-9]" maxlength="3">
                 </td>
             </tr>
             <tr>
                 <td>Hair colour:</td>
                 <td>
-                    <input style="width: 100px;" type="color" name="Hair colour" value="#e66465" required><br>
+                    <input style="width: 100px;" type="color" name="hair_color" value="#e66465" required><br>
                 </td>
             </tr>
             <tr>
