@@ -14,7 +14,7 @@ Each student entity in the database has the following attributes
 6. Weight (This field affects the size the student is presented in the "view database" tab)
 7. Height (This field affects the size the student is presented in the "view database" tab)
 8. Shoe size
-9. Hair color (This field affects the size the student is presented in the "view database" tab)
+9. Hair color (This field affects the color of the name of the student presented in the "view database" tab)
 10. GPA
 
 ### Updating a student from the database
