@@ -1,39 +1,28 @@
-# node-js-getting-started
+# READ ME for project 2
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+The page has 2 main functions, modifying the database and viewing the database
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## Modifying the database
 
-## Running Locally
+### Adding a student to the database
+Each student entity in the database has the following attributes
+1. First name 
+2. Last name
+3. Studetn ID (This field is the primary key for the entity in the database that uniquely identifies the student)
+4. Date Of Birth 
+5. Gender
+6. Weight (This field affects the size the student is presented in the "view database" tab)
+7. Height (This field affects the size the student is presented in the "view database" tab)
+8. Shoe size
+9. Hair color (This field affects the size the student is presented in the "view database" tab)
+10. GPA
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+### Updating a student from the database
+We can find a student by the the student's student ID. Once the student is found, a new display will show up where all the fields BUT the student ID can be updated and changed as desired. In this display we can then cancel or update the attributes for the student
 
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+### Deleting a student from the database
+We can delete a student from the database with the following attributes (first name, last name, student ID). Even though only the student ID uniquely identifies the student, first name and last name are added for sucurity reason so that users don't accidentally remove another student as the one they thought they were deleting.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+## Viewing the database
 
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+This page displays the entire database in a table in the order of when each entity is added. Following the table, the students are then drawn out in the area under as person figures. The size of the student is dependent on the weight and height of the students, where it gets scaled through the algorithm (100 * (actualWeight / avgWeight))  and (100 * (actualHeight / avgHeight)). This helps with scaling the students drawing so that the deviation of the sizes of the students are not too large which can result in giant students and tiny students. The hair color is also displayed through the name of the student under each of the drawings.
